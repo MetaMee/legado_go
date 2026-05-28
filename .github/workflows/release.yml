@@ -68,6 +68,11 @@ jobs:
           echo "统一版本号"
           sed "/def version/c def version = \"${{ env.VERSION }}\"" $GITHUB_WORKSPACE/app/build.gradle  -i
 
+      - name: Use Pro Google Services
+        run: |
+          cp $GITHUB_WORKSPACE/app/google-services-pro.json \
+             $GITHUB_WORKSPACE/app/google-services.json
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
