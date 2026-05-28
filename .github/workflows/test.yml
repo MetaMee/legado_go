@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
     paths:
       - '**'
       # - '!**/assets/**'
@@ -15,7 +16,9 @@ on:
       - '**/modules/web/**'
   workflow_run:
     workflows: [Build Web]
-    branches: [master]
+    branches:
+      - master
+      - main
     types:
       - completed
   workflow_dispatch:
